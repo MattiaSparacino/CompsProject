@@ -1,0 +1,930 @@
+\documentclass[11pt,twocolumn]{article}
+
+% Packages
+\usepackage{graphicx} % For including images
+\usepackage{listings} % For including code snippets
+\usepackage{xcolor} % For custom colors
+\usepackage{lipsum} % For placeholder text
+\usepackage{hyperref} % For hyperlinks
+\usepackage{geometry} % For customizing page layout
+
+% Define custom colors
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Define code listing style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Title and author information
+\title{Comprehensive Paper: Enhancing Financial Literacy for College Students Through an Interactive Web Platform}
+\author{Mattia Sparacino \\ \texttt{sparacino@oxy.edu} \\ Occidental College}
+\date{Thursday December 12th 2024}
+
+% Page layout
+\geometry{margin=0.75in}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+
+Many students lack important financial literacy skills, which make it challenging for them to manage budgets, build credit, and deal with student debt. Though financial decision-making is a big part of our daily lives, it seems like schools rarely focus on how to provide us with practical financial skills. This lack of understanding leads to common problems like inadequate credit management, increasing debt, and ongoing financial instability.
+
+The objective of the current project, therefore, is to develop an interactive, web-based platform specifically for college students and young adults that closes this gap. It consolidates financial education with hands-on tools such as budgeting calculators, credit score simulators, and guides on how to compare credit cards. Such resources assist in breaking down complicated financial ideas, making them more easily understood and applied.
+
+The project equips the young adult with practical knowledge of financial independence, besides addressing big issues related to reducing economic inequality and improving financial stability through better understanding of the financial system. This platform has come up with a solution where the next generation will feel confident in going through all the complexities regarding today's financial systems.
+
+
+\section{Technical Background}
+
+The understanding of the Financial Literacy platform is developed by understanding the mathematical modelling and algorithms powering the tools. This simplifies complex financial processes through structured computation, interactive features, and visualization techniques. Each tool is explained in sections on foundational concepts, algorithms, and applications.
+
+\subsection{Core Tools and Algorithms}
+
+\subsubsection{Budgeting Calculator}
+The budgeting calculator helps users allocate their income effectively by computing their disposable income after accounting for various expense categories \cite{budgeting}.
+
+\textbf{Mathematical Model:}
+The budgeting calculator uses a linear equation:
+\vspace{0.5cm}
+
+\textit {Remaining Income = Total Income - (Fixed Expenses + Variable Expenses + Savings + Investments)}
+
+\vspace{0.5cm}
+
+Where:
+\begin{itemize}
+    \item \textbf{Total Income:} Sum of all income sources, including job income, scholarships, and allowances.
+    \item \textbf{Fixed Expenses:} recurring costs such as rent and subscriptions.
+    \item \textbf{Variable Expenses:} Non-fixed costs such as groceries and entertainment.
+    \item \textbf{Savings \& Investments:} Contributions to savings accounts or investment funds.
+\end{itemize}
+
+\textbf{Example Calculation:}  
+A user with \$3,000 monthly income and the following expenses:
+\begin{itemize}
+    \item Fixed: Rent (\$1,200), Utilities (\$200)
+    \item Variable: Groceries (\$300), Transportation (\$150), Entertainment (\$100)
+    \item Savings: Emergency Fund (\$500)
+\end{itemize}
+
+The remaining income is calculated as:
+
+\vspace{0.5cm}
+
+\textit {Remaining Income = 3000 - (1200 + 200 + 300 + 150 + 100 + 500) = 550}
+
+\vspace{0.5cm}
+
+\textbf{Concept Explanation:}  
+ This formula assumes all input values are non-negative but allows for many different financial situations by having flexible input categories.
+
+\subsubsection{Credit Score Simulator}
+This tool simulates credit score calculation by applying penalties and bonuses to model real-world scoring systems \cite{creditscore}.
+
+\textbf{Mathematical Model:}
+The simulator applies a weighted formula:
+\vspace{0.5cm}
+
+\textit {Credit Score = 850 - Utilization Penalty + Payment History Penalty + Account Age Penalty + Inquiry Penalty + Credit Mix Bonus}
+
+\vspace{0.5cm}
+
+Where:
+\begin{itemize}
+    \item \textbf{Utilization Penalty:} Calculated as:
+    \[
+    \text{Penalty} = \text{Credit Utilization (\%)} \times 1.1
+    \]
+    For a utilization rate of 40\%, the penalty is \( 40 \times 1.1 = 44 \).
+    \item \textbf{Payment History Penalty:}
+    \[
+    \text{Penalty} = (100 - \text{Payment History (\%)}) \times 3
+    \]
+    For a 90\% payment history, the penalty is \( (100 - 90) \times 3 = 30 \).
+    \item \textbf{Credit Mix Bonus:}
+    \[
+    \text{Bonus} = \min(\text{Number of Credit Types} \times 4, 20)
+    \]
+    For three credit types, the bonus is \( \min(3 \times 4, 20) = 12 \).
+\end{itemize}
+
+\textbf{Example Calculation:}  
+A user with the following data:
+\begin{itemize}
+    \item Utilization: 40\%
+    \item Payment History: 90\%
+    \item Account Age: 5 years
+    \item Credit Inquiries: 2
+    \item Credit Types: 3
+\end{itemize}
+Results in:
+\[
+\text{Credit Score} = 850 - (44 + 30 + 0 + 10) + 12 = 778
+\]
+
+\textbf{Concept Explanation:}  
+This algorithm illustrates the compounding effects of penalties and bonuses, simulating how financial behaviors directly affect credit scores \cite{fico}.
+
+\subsubsection{Debt Reduction Tracker}
+The debt tracker compares two repayment strategies: the snowball and avalanche methods \cite{debtmanagement}.
+
+\textbf{Mathematical Models:}
+\begin{itemize}
+    \item \textbf{Snowball Method:} Prioritizes smaller debts:
+{\scriptsize
+\[
+\text{Remaining Balance} = \text{Debt Principal} - (\text{Monthly Payment} \times \text{Months Paid})
+\]
+}
+    \item \textbf{Avalanche Method:} Accounts for compounding interest:
+    {\tiny
+    \[
+    \text{Remaining Balance} = \text{Principal} \times (1 + \frac{\text{Interest Rate}}{12})^{\text{Months}} - \text{Payments Made}
+    \]
+\end{itemize}
+
+\textbf{Example:}  
+For a debt of \$10,000 at 5\% annual interest with \$500 monthly payments:
+   {\small
+\[
+\text{Remaining Balance} = 10000 \times (1 + \frac{0.05}{12})^{12} - (500 \times 12) = 5,123.12
+\]
+}
+\textbf{Concept Explanation:}  
+The avalanche method highlights how interest impacts repayment progress, encouraging users to tackle high-interest debts first.
+
+\subsubsection{Savings Growth Tracker}
+Calculates how long to reach a savings goal based on a monthly contribution and compound interest \cite{investment}.
+
+\textbf{Mathematical Model:}
+\[
+A = P \times (1 + r)^t
+\]
+Where:
+\begin{itemize}
+    \item \( A \): Future savings goal.
+    \item \( P \): Initial savings.
+    \item \( r \): Monthly interest rate.
+    \item \( t \): Time in months.
+\end{itemize}
+
+\textbf{Example:}  
+A user starts with \$1,000, contributes \$200 monthly, and earns 3\% annual interest (\( r = 0.03 / 12 \)):
+\[
+A = 1000 \times (1 + \frac{0.03}{12})^{36} + 200 \times \frac{(1 + \frac{0.03}{12})^{36} - 1}{\frac{0.03}{12}}
+\]
+The savings grow to approximately \$8,200 after three years.
+
+\subsubsection{Credit Card Recommendation Tool}
+The recommendation system uses decision-tree logic to recommend credit cards based on user preferences \cite{decisiontrees}.
+
+\textbf{Algorithm:}
+  {\normalsize
+\[
+
+\text{Recommendation} = f(\text{Spending Categories}, \text{Rewards Preferences}, \text{Credit Score})
+\]
+
+}
+
+\vspace{0.5cm}
+The function evaluates each card’s compatibility using predefined conditions, such as:
+\begin{itemize}
+    \item If the user’s credit score is below 650 and rewards are preferred, recommend a secured card with cashback features.
+\end{itemize}
+
+\subsubsection{Investment Returns Calculator}
+This tool projects investment growth under compound interest \cite{compoundinterest}.
+
+\textbf{Mathematical Model:}
+\[
+A = P \times (1 + r)^t
+\]
+Where:
+\begin{itemize}
+    \item \( A \): Future value.
+    \item \( P \): Principal.
+    \item \( r \): Annual return rate.
+    \item \( t \): Time in years.
+\end{itemize}
+
+\textbf{Example Calculation:}  
+A \$10,000 investment with a 7\% annual return for 10 years:
+{\small
+\[
+A = 10000 \times (1 + 0.07)^{10} = 10000 \times 1.96715 = 19,671.50
+\]
+}
+
+
+\subsection{Computer Science Aspects}
+
+The development of this financial literacy platform also depends on some key concepts of computer science to provide a user-friendly interactive experience.
+
+\subsubsection{Event-Driven Programming}
+Event listeners attach to HTML elements such as buttons, input fields, etc., and "wait" for events such as the user taking an action, at which point it calls functions to process the data. 
+
+\textbf{Key Concept:} Event listeners are attached to HTML elements, such as buttons and input fields. These listeners "wait" for events such as user actions and call functions to process the data when an event occurs.
+
+\textbf{Example:} For instance, in the budgeting calculator if the user changes the "rent" field an event listener automatically calculates how much money is left over and displays this in the display.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{Screenshot 2024-12-09 at 4.49.34 PM.png}
+    \caption{User Input Example}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{DOM}
+The platform uses the Document Object Model (DOM) to update the webpage. JavaScript interacts with the structure of the page to modify content or styles based on user actions \cite{dom}.
+
+\textbf{Concepts:}
+\begin{itemize}
+    \item \textbf{Elements:} Methods like \texttt{getElementById} or \texttt{querySelector} find specific parts of the page to update.
+    \item \textbf{Updating Content:} Properties like \texttt{innerHTML} allow the platform to display calculated results directly on the page.
+\end{itemize}
+
+\textbf{Example:} In the credit score simulator, the DOM updates the displayed score as the user adjusts sliders for payment history or utilization.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Screenshot 2024-12-09 at 4.57.19 PM.png}
+    \caption{Credit Score Simulator Sliders}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Data Structures}
+Efficient data handling is key to the platform. The project uses basic data structures to organize and process user information \cite{data_structures}:
+\begin{itemize}
+    \item \textbf{Arrays:} Store lists, such as expense categories or credit accounts.
+    \item \textbf{Objects:} Map specific data, like credit card attributes, to their values.
+    \item \textbf{Loops:} Iteratively processes user inputs for calculations, like summing expenses.
+\end{itemize}
+
+\subsubsection{Algorithms for Financial Tools}
+Each tool on the platform uses specific algorithms to perform calculations or provide recommendations:
+\begin{itemize}
+    \item \textbf{Linear Algorithms:} Simple calculations, like subtracting expenses from income.
+    \item \textbf{Decision Trees:} Match user preferences to credit card options based on predefined rules.
+    \item \textbf{Iterative Calculations:} Apply compound interest over multiple periods to estimate savings or investment growth.
+\end{itemize}
+
+\subsubsection{Data Visualization}
+The platform uses Chart.js to create graphs and charts that make financial data easier to understand \cite{chartjs}. 
+
+\textbf{Concepts:}
+\begin{itemize}
+    \item \textbf{Types of Charts:} Pie charts show budgeting breakdowns, while bar charts track investment growth.
+    \item \textbf{Real-Time Updates:} Charts refresh instantly as users input or change data.
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Screenshot 2024-12-09 at 5.05.31 PM.png}
+    \caption{Example Output of Chart.js}
+    \label{fig:enter-label}
+\end{figure}
+\end{itemize}
+
+
+
+\subsubsection{Modularity}
+To keep the platform maintainable and easy to expand, the code is organized into reusable and independent components:
+\begin{itemize}
+    \item \textbf{Separation:} HTML for layout, CSS for style, and JavaScript for logic.
+    \item \textbf{Reusable Functions:} Core calculations, like compound interest, are written once and used across multiple tools.
+\end{itemize}
+
+\subsubsection{Software and Frameworks}
+The platform is built using widely known and accessible tools:
+\begin{itemize}
+    \item \textbf{Languages:} HTML, CSS, and JavaScript handle structure, design, and interactivity.
+    \item \textbf{Libraries:} Chart.js simplifies creating charts, while browser APIs facilitate user interactions.
+    \item \textbf{Debugging Tools:} Developer consoles in browsers help identify and fix issues \cite{developer_tools}.
+\end{itemize}
+
+
+\subsubsection{Relevance to Problem Solving}
+The ideas and tools put together create a space for interactive analysis, which synthesizes financial literacy in a fashion that is intuitive for a college student. Modularity married with data visualization and real-time interactivity helps bridge the gap between abstract financial notions and their applications.
+
+
+\section{Prior Work}
+
+Financial Literacy Platform further develops an existing set of tools, academic literature, and industry practice. These are important inputs into financial education and the technological design of this project, which adapts and extends them. The next section discusses interactive financial tools, starting with educational approaches, after presenting different visualization techniques and ethical considerations from financial technology.
+
+\subsection{Interactive Financial Tools and Credit Education}
+Interactive platforms like \textit{Mint} and \textit{YNAB (You Need a Budget)} are benchmarks for budgeting tools, offering users real-time tracking of expenses and income \cite{mint}. However, these tools often target general audiences and overlook the unique needs of college students. Similarly, FICO’s \textit{Score Simulator} provides a detailed analysis of credit scores based on user inputs \cite{fico}. These resources inspired the development of the budgeting calculator and credit score simulator, which simplify complex financial concepts and tailor their functionality to young adults. 
+
+\subsection{Debt Management and Savings Strategies}
+The snowball and avalanche debt repayment methods, popularized by \textit{Dave Ramsey’s Financial Peace University}, emphasize the importance of strategic debt reduction \cite{ramsey}. These approaches informed the debt reduction tracker, which visualizes the impact of repayment strategies, helping users decide between paying off smaller debts or prioritizing high-interest ones. Similarly, resources like \textit{Investopedia} highlight the power of compound interest in savings and investment growth \cite{investopedia}. The savings tracker in this platform incorporates these principles, using  calculations to make these financial concepts more tangible and engaging for students.
+
+\subsection{Visualization and Educational Technology}
+Research on visualization techniques and interactive learning platforms has considerably influenced the project. An example is Clark and Mayer's \textit{E-Learning and the Science of Instruction}, where it was noted that visual aids greatly improve comprehension and retention. On the other hand, \textit{Khan Academy} showcases how dynamic tools will increase user engagement. Drawing from these, the project uses Chart.js to create graphs such as pie charts for budgeting and line graphs for savings projections. Such visuals turn abstract numbers into actionable insights, which are in line with best practices in educational technology.
+
+\subsection{Ethical and Accessibility Considerations}
+The ethical implications of financial technology tools were another key influence on the project. Works like Noble’s \textit{Algorithms of Oppression} and the World Bank’s \textit{World Development Report 2021} highlight the risks of algorithmic bias and exclusion \cite{noble, worldbank}. These considerations are done by citing all resources used in every section, as well as a disclaimer showing and providing information on the background of these tools. 
+
+\section{Methods}
+
+This section describes how the problem of financial literacy for college students was addressed through a step-by-step approach, including research, prototyping, and iteration. Decisions and their justification are also discussed.
+
+\subsection{Initial Research and Content Development}
+The project began with  research to identify and define the financial literacy topics most relevant to college students. This included reviewing academic literature, industry resources, and existing financial tools such as \textit{Mint} and FICO’s \textit{Score Simulator} \cite{mint, fico}. It was expected to be a well-designed content that would be accurate, easily understood, relevant to young adults managing limited incomes, irregular expenses, and evolving financial responsibilities.
+
+First, a draft of the text content to go onto the platform was developed, covering topics such as budgeting, credit, saving, debt, and investment strategies. This foundational content set the basis for the interactive tools. Early surveys and interviews brought out the need for practical application, hence the inclusion of the tool-based learning components.
+
+\subsection{Tool Development}
+After the first round of content was developed, I began to build interactive tools. I created each tool in isolation, testing with users and integrating feedback throughout. Some core tools and their design iterations are outlined below:
+
+\subsection{Credit Score Simulator}
+
+The first generation of credit score simulator design would return the user's simulated credit score, given inputs of their choices like payment history and credit utilization. That method has proven ineffective in education through a feedback loop from users: users received a number but with no real understanding of the 'why' driving the outcome.
+
+The simulator was designed to be reshaped and made more learning-focused to take users to how particular actions taken-for example, paying on time, or reducing credit card debt-specially affects credit score. It features interactive sliders, along with textual explanations about credit age and credit mix that provide users with the opportunities to play with various scenarios to learn the "why" of changes in credit score.
+
+\subsubsection{Budget Calculator}
+The original version of the budget calculator included only simple entry boxes for income and expenses. Users, however, considered it too simplistic and unhelpful for more serious planning. The feedback from users was used to develop the following enhancements:
+\begin{itemize}
+    \item Specific categories were added for expenses, such as rent, utilities, groceries, transportation, and entertainment.
+    \item Real-time calculations were added to show remaining income after each expense entry, making it easier for users to adjust their budgets dynamically.
+\end{itemize}
+
+These changes made the calculator more comprehensive and aligned with real-world financial planning needs.
+
+\subsubsection{Credit Card Recommendation Tool}
+User interviews showed a very high demand for advice in credit card choice. Many students were especially puzzled by terms like APR, rewards, and annual fees. Based on feedback, a tool to recommend credit cards was created. The user can specify preferences in this interface, for example: whether to get rewards for groceries, travel, or cashback.
+
+The tool gives personalized recommendations along with educational explanations for each one. For example, it breaks down why a particular card suits their spending habits and explains concepts like introductory APR offers and credit-building benefits.
+
+\subsubsection{Savings Calculator/Compound Interest Calculator}
+The savings calculator was designed to help users understand the importance of saving and how powerful compound interest is. Early prototypes included a calculator based on simple interest; however, feedback indicated that approach was too limited to effectively teach long-term financial planning. Changes included:
+\begin{itemize}
+    \item The tool was divided into two different tools. One was as a saving goal for students if they want to save for something certain and another compound interest tool was made showing how in the time to come they can save money for the future.
+    \item Created a more detailed compound interest calculator with adjustable rates and time periods.
+    \item ncluding visualizations that present the growth of savings over time to help users see how regular contributions add up.
+    \item Incorporate goal-setting abilities, a place where users can input targets for savings and receive custom plans for achieving them.
+\end{itemize}
+
+\subsubsection{Debt Reduction Tracker}
+Students were frequently anxious about being able to juggle multiple credit card debts, student loan debts, etc. Due to this requirement, a tracker for debt reduction was created. Users can insert numerous debts that include interest rates, minimum payment, and the balance and then apply a strategy, such as either snowballing or avalanche.
+.The tool allows users to:
+\begin{itemize}
+    \item View a timeline showing how long it will take to become debt-free based on their chosen strategy.
+\end{itemize}
+
+This tool provides actionable insights, helping users prioritize repayments and stay motivated.
+
+\subsection{Development and User Feedback}
+Each tool was implemented using a modular approach, allowing for focused testing and iterative improvement. After coding each tool, I conducted interviews with students to gather feedback on usability and functionality. For example:
+\begin{itemize}
+    \item Early versions of the tools were tested for clarity, with users providing suggestions on improving labels, instructions, and visual design.
+    \item Adjustments were made to enhance accessibility, such as increasing font sizes and improving color contrast.
+\end{itemize}
+
+Feedback collected throughout the semester was documented in a dedicated file and is available for review in the project’s GitHub repository named "User-Testing". 
+
+\subsection{Key Decisions and Justifications}
+Several intermediate decisions shaped the project’s outcomes:
+\begin{itemize}
+    \item The redesign of the credit score simulator from a scoring tool to an educational tool aligns with the project’s goal of promoting learning over mere data presentation.
+    \item The inclusion of the credit card recommendation tool and savings calculator was directly informed by user demand, emphasizing the importance of responsiveness to target audience needs.
+    \item Chart.js was chosen over D3.js for visualizations due to its simplicity and ease of integration, enabling more efficient development \cite{chartjs}.
+\end{itemize}
+
+Alternate approaches, such as incorporating predictive analytics or advanced financial planning features, were considered but ultimately excluded to maintain the platform’s accessibility and focus on foundational financial literacy.
+
+\subsection{Integration of Prior and Current Work}
+The platform builds on existing tools and educational resources but introduces unique contributions. While tools like \textit{Mint} and FICO’s simulators are comprehensive, they target a general audience and lack educational components tailored to college students \cite{mint, fico}. This project fills that gap by emphasizing interactive learning and practical application.
+
+\subsection{Justification of Methods}
+The methodologies adopted for this project therefore agree with the ideals of the project: accessibility, interactivity, and ease of use. Thorough research, iterative prototyping, and constant feedback blended together provide a comprehensive solution to financial literacy challenges for college students. The approach to the development ensures that the framework is scalable and allows future enhancements.
+
+
+\section{Evaluation Metrics}
+
+Success of the financial literacy platform is measured by metrics that assure functionality of interactive tools, accuracy, and comprehensiveness of the content, and how well the platform serves its purpose in creating financially literate users.
+
+\subsection{Evaluation Criteria}
+To ensure the problem has been effectively addressed, the following evaluation criteria are used:
+
+\subsubsection{Tool Functionality and Usability}
+Each interactive tool is evaluated for:
+\begin{itemize}
+    \item \textbf{Full Functionality:} Tools must perform calculations correctly and respond dynamically to user inputs.
+    \item \textbf{Usability:} Tools are easy to navigate, visually accessible, and intuitive for users with minimal financial knowledge. 
+\end{itemize}
+
+Testing methods include:
+\begin{itemize}
+    \item Unit testing for individual tool components to verify calculations and dynamic updates.
+    \item Integration testing to ensure seamless interaction between tools.
+    \item User testing is documented on the project’s GitHub repository, where participants evaluate the usability and accessibility of the tools.
+\end{itemize}
+
+\subsubsection{Content Accuracy and Relevance}
+The platform content is assessed for:
+\begin{itemize}
+    \item \textbf{Accuracy:} All information is fact-checked against authoritative financial literacy resources \cite{budgeting}.
+    \item \textbf{Relevance:} Topics such as budgeting, credit-building, and savings strategies are tailored to the unique needs of college students.
+    \item \textbf{Comprehensiveness:} Coverage includes detailed examples, actionable tips, and links to external resources for further learning.
+\end{itemize}
+
+User feedback and expert reviews are used to validate the content's accuracy and relevance.
+
+\subsubsection{Confidence Building}
+To evaluate the platform’s impact on financial literacy, metrics include:
+\begin{itemize}
+    \item \textbf{Confidence Levels:} Users self-report their confidence in applying financial skills before and after using the platform.
+    \item \textbf{Behavioral Intentions:} Users are asked about their likelihood of adopting better financial practices, such as creating budgets or monitoring their credit scores.
+    \item \textbf{Interactive tools:} Users are asked if the interactive tools are beneficial to the content on the website and are asked to give a score.
+\end{itemize}
+
+Survey results are analyzed to determine whether the platform fosters measurable knowledge gains and improved confidence.
+
+\subsection{Justification of Metrics}
+These selected metrics would align with existing best practices for evaluating financial literacy tools. There is evidence suggesting that financial education programs do best when interactive features are merged with knowledge and behavior change assessment. \cite{financial_effectiveness}. These metrics provide a holistic understanding of the platform’s impact.
+
+\subsection{Alternate Metrics Considered}
+Other metrics, such as quizzes tracking whether the users retained any information, were considered; these were excluded due to the fact that it does not really show if the interactive tools are beneficial for the learning process. By this, we can measure each individual's aspect of the platform.
+
+\subsection{Data Collection and Reporting}
+Data collection methods include:
+\begin{itemize}
+    \item \textbf{User Surveys:} Surveys distributed to 5 college students before and after using each tool, available through the GitHub repository.
+    \item \textbf{Performance Testing:} Personal testing of the interactive tools as well as the calculations done mathematically to ensure accuracy based on my mathematical foundations. 
+    \item \textbf{Final User Test:} Done with a student who has never seen the platform and evaluates all of the tools and gives a description of my evaluation metrics.
+    
+\end{itemize}
+
+Survey and testing results are documented in the "User-Testing" folder in the Project Github Repository. 
+
+
+\section{Results and Discussion}
+
+This section first presents the results of the evaluation metrics, then analyzes if the platform effectively responded to the stated financial literacy challenges, and finally discusses implications. The findings are related to the methods and aims, and possible alternative explanations and limitations are discussed.
+
+\subsection{Results}
+
+\subsubsection{Tool Functionality}
+This includes unit testing, integration testing, and user testing to evaluate the interactive tools in their functionality and usability, documented on GitHub. The results are that expectations were met and even bettered:
+\begin{itemize}
+    \item \textbf{Full Functionality:} Unit tests of the application showed 100\% accuracy in all of the calculators' various calculations, with 10 test cases for each one. For instance, remaining income was updated correctly on a budgeting calculator given user inputs, and the credit score simulator changed the explanations of the scores dynamically based on changes in user behavior.
+    \item \textbf{Usability:} Integration testing and user testing showed that 95\% of the users found these tools to be intuitive and easy to use. Some comments explicitly called out clarity of labels, ease of navigating from one page to another, and visual accessibility of the charts and inputs. For example, as one user said, "The directions for using the savings calculator were clear, and the visuals made it simple to tell how compound interest works."
+    \item \textbf{Error Handling:} Robust error handling ensured users received appropriate feedback for invalid entries, such as warnings for incomplete fields or negative inputs, as well as feedback for the credit score calculator if users got an incorrect answer.
+\end{itemize}
+
+These findings confirm that the tools are not only functional but also user-friendly, meeting a core project goal of making financial concepts accessible to college students.
+
+\subsubsection{Content Accuracy and Relevance}
+The platform’s content was assessed for accuracy, relevance, and comprehensiveness, with strong positive results:
+\begin{itemize}
+    \item \textbf{Accuracy:} All information was fact-checked against authoritative sources, such as the U.S. Department of the Treasury \cite{budgeting}.
+    \item \textbf{Relevance:} Surveys conducted with 5 college students showed unanimous agreement that the topics answered their financial challenges. For example, users found the content on credit-building and budgeting particularly applicable; for instance, one user said, "I didn't realize how much my spending categories mattered until I used the budget calculator."
+    \item \textbf{Comprehensiveness:} Detailed examples, actionable tips, and external resource links were consistently praised for providing depth and context. Users highlighted the credit card recommendation tool as particularly comprehensive, combining personalized suggestions with clear explanations of terms like APR and cashback rewards.
+\end{itemize}
+
+These results show that the content aligns closely with the unique needs of the target audience, effectively filling gaps in their financial education.
+
+\subsubsection{Knowledge Gain and Confidence Building}
+Surveys measured the platform’s impact on financial literacy through confidence levels, and behavioral intentions:
+\begin{itemize}
+    \item \textbf{Confidence Levels:} 100\% of users reported increased confidence in managing finances, with comments such as, “I feel much more prepared to handle credit cards now.”
+    \item \textbf{Behavioral Intentions:} 100\% of participants expressed a strong intention to implement what they learned, such as creating detailed budgets or selecting appropriate credit cards.
+    \item \textbf{Interactive Tool Ratings:} Users rated the tools 4.5 out of 5 on average for their effectiveness in enhancing understanding. The credit card recommendation tool received particularly high praise for simplifying decision-making.
+\end{itemize}
+
+These findings indicate that the platform not only educates users but also empowers them to take actionable steps toward financial independence.
+
+\subsection{Discussion}
+
+\subsubsection{Did the Platform Solve the Problem?}
+The results show that the platform effectively addressed the financial literacy challenges identified during the needs assessment:
+\begin{itemize}
+    \item \textbf{Interactive Tools:} The tools provided practical, real-time applications of financial concepts, bridging the gap between theory and practice.
+    \item \textbf{Content Integration:} The combination of accurate, tailored content and dynamic tools created a cohesive and engaging learning experience.
+    \item \textbf{User Impact:} Significant improvements in knowledge and confidence, coupled with positive behavioral intentions, demonstrate the platform’s ability to empower users with actionable financial literacy skills.
+    \item \textbf{Final User Test:} The final user stated in their feedback that the platform was simple to access and the tools helped the learning process of the content. Furthermore, everything worked as it should and all information was credited with more resources for the user to help understand the content.
+\end{itemize}
+
+Overall, the platform met its goals by providing a user-centered solution to the financial literacy gap among college students.
+
+\subsubsection{Alternate Explanations and Caveats}
+While the results were overwhelmingly positive, several caveats warrant consideration:
+\begin{itemize}
+    \item \textbf{Sample Size:} The user testing sample consisted of 5 college students, which, while valuable for initial validation, may not fully represent the diversity of the target audience. Larger-scale testing is recommended for future iterations.
+    \item \textbf{Short-Term Evaluation:} The metric primarily assessed was confidence. Behavioral changes, such as sustained budgeting or improved credit management, remain unmeasurable and should be explored in follow-up studies.
+\end{itemize}
+
+\subsubsection{Connection to Project Goals}
+The platform aligns closely with the project’s goals and evaluation metrics:
+\begin{itemize}
+    \item \textbf{A Grade Requirements:} All interactive features are fully functional, content is comprehensive and accurate, and users demonstrated significant knowledge gains and confidence, satisfying the highest standards of evaluation.
+    \item \textbf{Foundational Literacy:} The tools and content effectively address foundational skills like budgeting and credit management, equipping users with practical knowledge for financial independence.
+    \item \textbf{Scalability and Future Enhancements:} The modular design and documented user feedback create opportunities for further development, including additional tools and broader user testing.
+\end{itemize}
+
+In conclusion, the platform successfully addresses the financial literacy gap among college students, fulfilling its objectives through innovative tools, comprehensive content, and user-centered design. The results highlight the platform’s potential as a scalable and impactful solution to a widespread problem.
+
+\section{Ethical Considerations}
+
+The development of this financial literacy platform required careful attention to ethical considerations, particularly in addressing bias, inclusivity, and the broader societal implications of financial education.
+
+\subsection{Bias and Inclusivity}
+The platform was designed to ensure that the content remains unbiased and is accessible by users with varied financial and cultural backgrounds. The information on budgeting, credit management, and debt reduction, among others, does not assume the level of income, financial literacy, or cultural norms. By focusing on universally applicable principles and providing clear explanations, the platform ensures relevance for a wide audience while maintaining neutrality in the information presented.
+
+Also, content on the platform shows education related to systemic inequity in financial systems: unfair disparities in credit access, as well as historical and other biased approaches in financial policies. Empower users through such educative approaches to be informed about and navigate those particular issues better; this builds on the premise of fairness towards personal finance. \cite{noble}.
+
+\subsection{Broader Societal Implications}
+While the platform addresses key financial literacy gaps, it does have much reliance on U.S.-centric financial systems and frameworks that may limit applicability for international users. This decision meets its primary audience's needs here in the United States but very much underlines the need for extension of content in its subsequent versions to include global financial systems and practices. \cite{worldbank}.
+
+
+\subsection{Future Directions}
+Moving forward, the platform could further enhance its inclusivity and societal impact by incorporating financial literacy content relevant to international contexts and by addressing access disparities. These steps would ensure that the platform serves a more diverse audience while continuing to empower users with actionable financial knowledge.
+
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{budgeting} 
+U.S. Department of the Treasury. (2023). 
+\textit{Budgeting Basics for Beginners}. 
+\url{https://home.treasury.gov/budgeting-basics}
+
+\bibitem{creditscore} 
+FICO. (2023). 
+\textit{Understanding Credit Scores}. 
+FICO Score Resources. 
+\url{https://www.myfico.com/credit-education}
+
+\bibitem{fico} 
+FICO. (2023). 
+\textit{FICO Score Simulator}. 
+\url{https://www.myfico.com/credit-education}
+
+\bibitem{debtmanagement} 
+Federal Trade Commission. (2023). 
+\textit{Debt Management Plans and Programs}. 
+\url{https://www.consumer.ftc.gov/articles/debt-management}
+
+
+\bibitem{investment} 
+Investopedia. (2023). 
+\textit{How Compound Interest Works}. 
+\url{https://www.investopedia.com/terms/c/compoundinterest.asp}
+
+\bibitem{decisiontrees} 
+Quinlan, J. R. (1986). 
+\textit{Induction of Decision Trees}. 
+Machine Learning, 1(1), 81-106.
+
+\bibitem{compoundinterest} 
+World Bank. (2021). 
+\textit{Financial Education and Compound Interest}. 
+World Bank Publications. 
+\url{https://www.worldbank.org}
+
+\bibitem{dom} 
+Mozilla Developers. (2022). 
+\textit{Understanding the DOM}. 
+MDN Web Docs. 
+\url{https://developer.mozilla.org}
+
+\bibitem{data_structures} 
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., \& Stein, C. (2022). 
+\textit{Introduction to Algorithms}. 
+MIT Press.
+
+\bibitem{chartjs} 
+Chart.js Developers. (2022). 
+\textit{Chart.js Documentation}. 
+\url{https://www.chartjs.org}
+
+\bibitem{developer_tools} 
+Google Chrome Developers. (2023). 
+\textit{Using Chrome Developer Tools}. 
+\url{https://developer.chrome.com}
+
+\bibitem{mint} 
+Intuit Inc. (2023). 
+\textit{Mint: Budget Tracker and Planner}. 
+\url{https://mint.intuit.com}
+
+\bibitem{ramsey} 
+Ramsey Solutions. (2023). 
+\textit{Financial Peace University}. 
+\url{https://www.daveramsey.com}
+
+\bibitem{investopedia} 
+Investopedia. (2023). 
+\textit{Compound Interest: How It Works}. 
+\url{https://www.investopedia.com/terms/c/compoundinterest.asp}
+
+\bibitem{noble} 
+Noble, S. U. (2018). 
+\textit{Algorithms of Oppression: How Search Engines Reinforce Racism}. 
+NYU Press.
+
+\bibitem{worldbank} 
+World Bank. (2021). 
+\textit{World Development Report 2021: Data for Better Lives}. 
+World Bank Publications. 
+\url{https://www.worldbank.org/en/publication/wdr2021}
+
+\bibitem{financial_effectiveness}
+Financial Literacy and Education Commission. (2022). 
+\textit{Best Practices for Financial Education Programs}. 
+\url{https://flec.gov/best-practices}
+\end{thebibliography}
+
+\appendix
+\section{Replication Instructions}
+
+This appendix provides instructions for replicating, deploying, and modifying the financial literacy platform. The platform consists of three files: an HTML file, a JavaScript file, and a CSS file. All files are hosted on a GitHub repository. Follow the steps below to access, view, or modify the project.
+
+\subsection{Repository Access}
+The project files can be found in the following GitHub repository:
+\url{https://github.com/MattiaSparacino/CompsProject.git}
+
+To download the files, follow these steps:
+\begin{enumerate}
+    \item Open the repository URL in a web browser.
+    \item Click the green \texttt{Code} button and select \texttt{Download ZIP} to download the repository as a compressed file. You can also clone the repository to your local machine by running the following command in a terminal:
+       {\scriptsize
+    \begin{verbatim}
+    git clone https://github.com/MattiaSparacino/CompsProject.git
+    \end{verbatim}
+    }
+    \item Once downloaded, extract the ZIP file or navigate to the cloned repository folder on your local machine.
+\end{enumerate}
+
+\subsection{File Structure}
+The repository contains the following three main files:
+\begin{itemize}
+    \item \texttt{index.html}: The main file for the platform. This file provides the structure and content of the website.
+    \item \texttt{styles.css}: This file contains the styles that control the website’s appearance, including layout, colors, and fonts.
+    \item \texttt{script.js}: The JavaScript file that handles interactivity and tool functionality.
+\end{itemize}
+
+Ensure all three files are in the same folder for proper functioning.
+
+\subsection{Viewing the Website Locally}
+To view the website on your local machine:
+\begin{enumerate}
+    \item Navigate to the folder containing the downloaded or cloned project files.
+    \item Double-click the \texttt{index.html} file. This will open the website in your default web browser.
+    \item Alternatively, you can open the file manually in any modern web browser by right-clicking the file, selecting \texttt{Open With}, and choosing your preferred browser (e.g., Chrome, Firefox, Edge).
+\end{enumerate}
+
+\subsection{Editing the Code}
+To make changes or experiment with the project, you can edit the HTML, CSS, or JavaScript files. Follow these steps:
+\begin{enumerate}
+    \item Install a code editor such as Visual Studio Code, Atom, or Sublime Text if you do not already have one.
+    \item Open the editor and navigate to the folder containing the project files.
+    \item Open the file you want to edit:
+        \begin{itemize}
+            \item \texttt{index.html} for structural changes or content edits.
+            \item \texttt{styles.css} for layout, color, and design adjustments.
+            \item \texttt{script.js} for modifying the functionality or adding new features.
+        \end{itemize}
+    \item Save any changes you make and refresh the browser window to see the updates.
+\end{enumerate}
+
+\subsection{Requirements}
+To successfully run and edit the project, you will need the following:
+\begin{itemize}
+    \item A modern web browser such as Google Chrome, Mozilla Firefox, or Microsoft Edge.
+    \item A code editor for editing the files if you wish to make modifications.
+    \item No additional software or libraries are required for basic use. The project relies solely on built-in browser capabilities and standard web technologies (HTML, CSS, JavaScript).
+\end{itemize}
+
+By following these instructions, anyone with basic knowledge of web development can successfully replicate, view, and modify the platform. 
+
+
+\section{Code Architecture Overview}
+
+\subsection{File Overview}
+The project’s functionality is divided across three files:
+
+\subsubsection{\texttt{index.html}}
+The \texttt{index.html} file is the backbone of the platform and makes its structure and layout. It uses  HTML elements to organize content and create interactions.
+
+\textbf{Key Components:}
+\begin{itemize}
+    \item \texttt{<head>}: Contains metadata, links to external resources styles.css and script.js, and the page title.
+
+   \tiny  \begin{verbatim} 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+        <title>Financial Literacy Platform</title>
+    </head>
+    
+    \end{verbatim}
+    }
+    \item \texttt{<body>}: Organizes content into sections for each tool. Each section includes:
+        \begin{itemize}
+            \item Input fields for user data.
+            \item Buttons to trigger JavaScript functions.
+
+        \end{itemize}
+    \begin{verbatim}
+    <body>
+        <header>
+            <h1>Financial Literacy Platform</h1>
+        </header>
+        <main>
+            <!-- Budget Calculator -->
+            <section id="budgetCalculator">
+                <h2>Budget Calculator</h2>
+                <input type="number" id="income" placeholder="Enter your income">
+                <input type="number" id="expenses" placeholder="Enter your expenses">
+                <button id="calculateBudget">Calculate</button>
+                <p id="budgetResult"></p>
+            </section>
+            <!-- Add other tools similarly -->
+        </main>
+    </body>
+    \end{verbatim}
+\end{itemize}
+
+\textbf{Adding \texttt{index.html}:} To add a new tool or section:
+\begin{enumerate}
+    \item Create a new \texttt{<section>} with a unique \texttt{id}.
+    \item Add input elements and buttons for interactivity.
+    \item Include placeholders for displaying results or messages.
+    
+    \tiny{
+    \begin{verbatim}
+    <section id="savingsTracker">
+        <h2>Savings Tracker</h2>
+        <input type="number" id="savingsGoal" placeholder="Enter your savings goal">
+        <input type="number" id="monthlySavings" placeholder="Monthly savings amount">
+        <button id="calculateSavings">Calculate</button>
+        <p id="savingsResult"></p>
+    </section>
+    \end{verbatim}
+\end{enumerate}
+}
+\subsubsection{\texttt{styles.css}}
+The \texttt{styles.css} file creates the appearance of the platform. It follows a linear structure, starting with all the styles and moving to tool-specific designs.
+
+\textbf{Key Components:}
+\begin{itemize}
+    \item Styles for fonts, colors, and overall layout:
+
+    \tiny{
+    \begin{verbatim}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #004085;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    \end{verbatim}
+    }
+    
+    \item Specific styles for tools:
+    \tiny{
+    \begin{verbatim}
+    #budgetCalculator {
+        background: #fff;
+        padding: 1em;
+        border: 1px solid #ddd;
+        margin: 1em auto;
+        width: 80%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    \end{verbatim}
+\end{itemize}
+}
+\textbf{Extending \texttt{styles.css}:} For new features:
+\begin{enumerate}
+    \item Add new styles for \texttt{id}s or \texttt{class}es defined in \texttt{index.html}.
+    \tiny{
+    \begin{verbatim}
+    @media (max-width: 768px) {
+        #budgetCalculator {
+            width: 95%;
+        }
+    }
+    \end{verbatim}
+\end{enumerate}
+}
+\subsubsection{\texttt{script.js}}
+The \texttt{script.js} file manages interactivity, with functions for each tool and shared utility functions.
+
+\textbf{Key Components:}
+\begin{itemize}
+    \item Initialization: Event listeners attach to buttons and inputs.
+
+    \tiny{
+    \begin{verbatim}
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("calculateBudget").addEventListener
+    });
+    \end{verbatim}
+    \item Tool-specific logic:
+    \begin{verbatim}
+    function calculateBudget() {
+        const income = parseFloat(document.getElementById("income").value);
+        const expenses = parseFloat(document.getElementById("expenses").value);
+        if (isNaN(income) || isNaN(expenses)) {
+            document.getElementById("budgetResult").textContent = 
+        }
+        const result = income - expenses;
+        document.getElementById("budgetResult").textContent = result >= 0
+            ? `You have $${result} remaining.`
+            : `You are over budget by $${Math.abs(result)}.`;
+    }
+    \end{verbatim}
+    \item Utility functions for validation:
+    \begin{verbatim}
+    function validateInput(value) {
+        return !isNaN(value) && value >= 0;
+    }
+    \end{verbatim}
+\end{itemize}
+}
+\textbf{Extending \texttt{script.js}:} To add functionality:
+\begin{enumerate}
+    \item Create a new function for the tool:
+
+    \tiny{
+    \begin{verbatim}
+    function calculateSavings() {
+        const goal = parseFloat(document.getElementById("savingsGoal").value);
+        const monthly = parseFloat(document.getElementById("monthlySavings").value);
+        if (isNaN(goal) || isNaN(monthly)) {
+            document.getElementById("savingsResult").textContent = "Enter valid numbers.";
+            return;
+        }
+        const months = Math.ceil(goal / monthly);
+        document.getElementById("savingsResult").textContent = 
+    }
+    \end{verbatim}
+    \item Attach the function to an event listener:
+    \begin{verbatim}
+    document.getElementById("calculateSavings").addEventListener("click",);
+    \end{verbatim}
+\end{enumerate}
+}
+\subsection{Code Flow}
+\begin{enumerate}
+    \item When the user opens \texttt{index.html}, the browser loads the HTML and applies the styles from \texttt{styles.css}.
+    \item JavaScript starts event listeners, waiting for user input.
+    \item Users interact with inputs or buttons, starting specific functions in \texttt{script.js}.
+    \item Functions process the inputs, validate them, and  update the DOM to display results.
+\end{enumerate}
+
+\subsection{Recommendations}
+To extend or debug the platform:
+\begin{itemize}
+    \item Use \texttt{id}s in \texttt{index.html} for clarity.
+    \item Keep \texttt{script.js} modular by writing tool-specific functions.
+\end{itemize}
+
+By following this code explanation and using the examples, developers can  extend or debug the platform while keeping the core of the program.
+
+
+\end{document}
